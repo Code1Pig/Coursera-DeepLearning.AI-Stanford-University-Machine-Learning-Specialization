@@ -29,7 +29,6 @@ def compute_cost_test(target):
     y = np.array([1, 1, 0, 0])
     w = np.random.randn(3)
     b = 0
-    
     result = target(X, y, w, b)
     assert np.isclose(result, 0.80709376), f"Wrong output. Expected: {0.80709376} got: {result}"
 
