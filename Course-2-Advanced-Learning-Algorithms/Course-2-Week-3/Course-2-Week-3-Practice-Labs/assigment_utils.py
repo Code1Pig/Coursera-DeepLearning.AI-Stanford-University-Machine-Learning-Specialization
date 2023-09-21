@@ -28,7 +28,7 @@ plt.style.use('./deeplearning.mplstyle')
 def gen_data(m, seed=1, scale=0.7):
     """ generate a data set based on a x^2 with added noise """
     c = 0
-    x_train = np.linspace(0,49,m)
+    x_train = np.linspace(0, 49, m)
     np.random.seed(seed)
     y_ideal = x_train**2 + c
     y_train = y_ideal + scale * y_ideal*(np.random.sample((m,))-0.5)
@@ -140,7 +140,7 @@ def plt_tune_regularization(X_train, y_train, X_cv, y_cv, x, y_pred, err_train, 
     ax[0].set_xlim(ax[0].get_xlim())
     ax[0].set_ylim(ax[0].get_ylim())
 #   ax[0].plot(x, y_pred[:,:],  lw=0.5, label=[f"$\lambda =${i}" for i in lambda_range])
-    for i in (0,3,7,9):
+    for i in range(len(lambda_range)): # (0,3,7,9):
         ax[0].plot(x, y_pred[:,i],  lw=0.5, label=f"$\lambda =${lambda_range[i]}")
     ax[0].legend()
 
