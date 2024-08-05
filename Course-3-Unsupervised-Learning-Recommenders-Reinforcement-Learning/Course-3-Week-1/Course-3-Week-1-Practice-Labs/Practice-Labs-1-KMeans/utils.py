@@ -12,16 +12,22 @@ def plot_data_points(X, idx):
     # plots data points in X, coloring them so that those with the same
     # index assignments in idx have the same color
     plt.scatter(X[:, 0], X[:, 1], c=idx)
-    
+
 def plot_progress_kMeans(X, centroids, previous_centroids, idx, K, i):
     # Plot the examples
     plot_data_points(X, idx)
-    
+
     # Plot the centroids as black 'x's
     plt.scatter(centroids[:, 0], centroids[:, 1], marker='x', c='k', linewidths=3)
-    
+
     # Plot history of the centroids with lines
     for j in range(centroids.shape[0]):
         draw_line(centroids[j, :], previous_centroids[j, :])
-    
+
     plt.title("Iteration number %d" %i)
+
+def load_data_part():
+    X_train = np.load("data/X_part1.npy")
+    X_val = np.load("data/X_val_part1.npy")
+    y_val = np.load("data/y_val_part1.npy")
+    return X_train, X_val, y_val
